@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Shopping Cart - Curzr{% endblock %}
+
+{% block content %}
+    <h1 class="mb-2">Your Shopping Cart</h1>
+
+    {% if is_empty %}
+        <div class="text-center mt-2">
+            <p>Your cart is empty. Let's find some awesome mice!</p>
+            <a href="{% url 'product_list' %}" class="btn btn-primary mt-1">
+                <i class="fas fa-mouse"></i> Go Shopping
+            </a>
+        </div>
+    {% else %}
+        <div class="cart-table-container"> {# Optional wrapper for responsiveness if needed #}
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Image</th>
+                        <th>Product</th>
+                        <th style="width: 15%; text-align: center;">Quantity</th>
+                        <th style="text-align: right;">Price</th>
+                        <th style="text-align: right;">Total</th>
+                        <th style="width: 15%; text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'product_detail' item.product.id %}">
+                            {% if item.product.imageURL %}
+                                <img src="{{ item.product.imageURL }}" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img src="{% static 'images/placeholder_mouse.png' %}" alt="Placeholder">
+                            {% endif %}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'product_detail' item.product.id %}" style="font-weight: 600; color: var(--color-text);">
+                                {{ item.product.name }}
+                            </a>
+                        </td>
+                        <td style="text-align: center;">
+                            <button class="btn btn-outline btn-sm update-cart-btn" data-product="{{ item.id }}" data-action="remove" aria-label="Decrease quantity">-</button>
+                            <span style="margin: 0 0.5rem; display: inline-block; min-width: 20px;">{{ item.quantity }}</span>
+                            <button class="btn btn-outline btn-sm update-cart-btn" data-product="{{ item.id }}" data-action="add" aria-label="Increase quantity">+</button>
+                        </td>
+                        <td style="text-align: right;">${{ item.product.price|floatformat:2 }}</td>
+                        <td style="text-align: right;">${{ item.total_price|floatformat:2 }}</td>
+                        <td style="text-align: center;">
+                            <button class="btn btn-sm btn-outline delete-cart-item-btn" data-product="{{ item.id }}" data-action="delete" style="color: var(--color-accent); border-color: var(--color-accent);" aria-label="Remove all of this item">
+                                <i class="fas fa-trash-alt"></i> {# Remove #}
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cart-summary mt-2" style="text-align: right;">
+            <h3 class="cart-total">Total: ${{ total_cart_price|floatformat:2 }}</h3>
+            <a href="{% url 'checkout' %}" class="btn btn-primary btn-lg mt-1">
+                Proceed to Checkout <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

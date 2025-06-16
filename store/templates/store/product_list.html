@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %} {# Make sure {% load static %} is here if using static for placeholder #}
+
+{% block title %}Our Products - Curzr{% endblock %}
+
+{% block content %}
+    <h1 class="mb-2">Our Products</h1> {# Using a utility class from the CSS for margin #}
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-item"> {# REMOVED INLINE STYLES #}
+            <a href="{% url 'product_detail' product.id %}">
+                <div class="product-image-container"> {# ADDED THIS WRAPPER #}
+                    {% if product.imageURL %}
+                        <img src="{{ product.imageURL }}" alt="{{ product.name }}"> {# REMOVED INLINE IMG STYLES #}
+                    {% else %}
+                        {# Consider adding a default placeholder image in your static files #}
+                        <img src="{% static 'images/placeholder_mouse.png' %}" alt="Placeholder Image for {{ product.name }}">
+                        {# To use the above, create static/images/placeholder_mouse.png in your project #}
+                    {% endif %}
+                </div>
+            </a>
+            <div class="product-info"> {# ADDED THIS WRAPPER #}
+                <a href="{% url 'product_detail' product.id %}" style="text-decoration:none; color: inherit;"> {# Make product name clickable and inherit color #}
+                   <h2>{{ product.name }}</h2>
+                </a>
+                <p class="product-price">${{ product.price }}</p> {# ADDED CLASS #}
+                <div class="product-actions"> {# ADDED THIS WRAPPER #}
+                     <button data-product="{{product.id}}" data-action="add" class="btn btn-primary add-to-cart-btn">Add to Cart</button> {# ADDED CLASSES #}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div style="grid-column: 1 / -1; text-align: center;"> {# Make sure empty message spans grid and is centered #}
+            <p class="mt-2">No products available yet. Check back soon!</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

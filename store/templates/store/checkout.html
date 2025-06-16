@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout - Curzr{% endblock %}
+
+{% block content %}
+    <h1 class="mb-2">Checkout</h1>
+
+    <div class="checkout-layout">
+        <div class="checkout-form-container">
+            <h2>Shipping Information</h2>
+            <form method="post" class="mt-1">
+                {% csrf_token %}
+                
+                {# Manual rendering for better control, or use a form helper library #}
+                {% for field in form %}
+                    <div class="form-group mb-1"> {# You can create a .form-group class for better spacing #}
+                        {{ field.label_tag }} 
+                        {{ field }} {# Django widgets should pick up input/textarea styles from main.css #}
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger p-1 mt-sm" style="font-size:0.85rem; padding:0.5rem 0.75rem;">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                
+                {# If you prefer {{ form.as_p }}, you might need to style p tags within the form specifically #}
+                {# {{ form.as_p }} #}
+
+                <button type="submit" class="btn btn-primary btn-lg mt-2">
+                    <i class="fas fa-lock"></i> Place Order (Simulated Payment)
+                </button>
+            </form>
+        </div>
+
+        <div class="checkout-summary-container">
+            <h2>Order Summary</h2>
+            <div class="checkout-summary mt-1">
+                {% if cart_items_display %}
+                    {% for item in cart_items_display %}
+                        <div class="summary-item" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);">
+                            <span>{{ item.product_name }} (x{{ item.quantity }})</span>
+                            <span>${{ item.total_price|floatformat:2 }}</span>
+                        </div>
+                    {% endfor %}
+                    <hr style="margin: 1rem 0;">
+                    <div class="summary-total" style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem;">
+                        <span>Total:</span>
+                        <span>${{ total_cart_price_checkout|floatformat:2 }}</span>
+                    </div>
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
