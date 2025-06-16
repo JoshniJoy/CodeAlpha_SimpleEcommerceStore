@@ -119,11 +119,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static'] # For project-wide static files
-STATIC_ROOT = BASE_DIR / 'staticfiles'   # For collectstatic in production
+STATIC_ROOT = BASE_DIR / 'staticfiles'   
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'mediafiles'     # For user-uploaded files
+MEDIA_ROOT = BASE_DIR / 'mediafiles'    
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'product_list' # Name of your main product listing page URL
+LOGIN_REDIRECT_URL = 'product_list' 
 LOGOUT_REDIRECT_URL = 'login'
