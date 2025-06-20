@@ -105,18 +105,17 @@ A brief overview of the main directories:
 
 ## Screenshots
 
-![1](https://github.com/user-attachments/assets/34795750-e1bc-4274-b09f-687a105d20c8)
+![1](https://github.com/user-attachments/assets/18c05cc6-72a2-4228-9ec8-210b23f8cd91)
 
-![2](https://github.com/user-attachments/assets/89d07e89-3aa4-4fa0-98af-89068f426341)
+![2](https://github.com/user-attachments/assets/164f3061-2e03-442d-919b-872ed7d8c800)
 
-![3](https://github.com/user-attachments/assets/495691d5-c000-4711-b7e9-e3943231bfc3)
+![3](https://github.com/user-attachments/assets/7e005785-579c-4f20-94e1-a61c1b855e9c)
 
-![4](https://github.com/user-attachments/assets/ad0e0527-4716-43ee-a7e1-f8d49a5343a9)
+![4](https://github.com/user-attachments/assets/43859021-0c4c-4687-a1fa-034fd3ae5ee0)
 
-![5](https://github.com/user-attachments/assets/1c7e4017-5622-45fc-afa3-d6c62773421c)
+![5](https://github.com/user-attachments/assets/813d9198-fb55-4dbc-ab4a-c53fda71feac)
 
-![6](https://github.com/user-attachments/assets/53da3ad2-564b-46bf-804a-11dba4dfd03a)
-
+![6](https://github.com/user-attachments/assets/11464ad5-a5ec-49f4-90d8-bec3d89b3456)
 
 ## Internship Task Requirements Fulfilled
 
