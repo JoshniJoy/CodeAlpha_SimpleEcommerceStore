@@ -4,8 +4,7 @@ Welcome to Curzr, a simple e-commerce store developed as Task 1 for the CodeAlph
 
 ## Live Demo
 
-*   **Deployed Site:** [yourusername.pythonanywhere.com](http://yourusername.pythonanywhere.com) 
-    *(Replace with your actual PythonAnywhere link once deployed, or state "Deployment in progress")*
+*   **Deployed Site:** [Demo Link](http://curzr.pythonanywhere.com) 
 
 ## Project Overview
 
@@ -104,6 +103,21 @@ A brief overview of the main directories:
 *   `.env`: (Not committed) For environment variables.
 *   `.gitignore`: Specifies intentionally untracked files that Git should ignore.
 
+## Screenshots
+
+![1](https://github.com/user-attachments/assets/34795750-e1bc-4274-b09f-687a105d20c8)
+
+![2](https://github.com/user-attachments/assets/89d07e89-3aa4-4fa0-98af-89068f426341)
+
+![3](https://github.com/user-attachments/assets/495691d5-c000-4711-b7e9-e3943231bfc3)
+
+![4](https://github.com/user-attachments/assets/ad0e0527-4716-43ee-a7e1-f8d49a5343a9)
+
+![5](https://github.com/user-attachments/assets/1c7e4017-5622-45fc-afa3-d6c62773421c)
+
+![6](https://github.com/user-attachments/assets/53da3ad2-564b-46bf-804a-11dba4dfd03a)
+
+
 ## Internship Task Requirements Fulfilled
 
 This project fulfills the requirements for Task 1 of the CodeAlpha Full Stack Development Internship:
@@ -112,22 +126,3 @@ This project fulfills the requirements for Task 1 of the CodeAlpha Full Stack De
 *   Backend: Django.
 *   Features: Shopping cart, Product details page, Order processing, User registration/login.
 *   Database for storing products, users, and orders.
-
-## Future Enhancements (Optional)
-
-*   Real payment gateway integration.
-*   More advanced product filtering and search.
-*   User reviews and ratings.
-*   Admin dashboard for sales analytics.
-*   REST APIs for potential mobile app integration.
-
-## Contact
-
-*   **Name:** Your Name
-*   **LinkedIn:** [Your LinkedIn Profile URL]
-*   **GitHub:** [Your GitHub Profile URL]
-*   **Email:** your.email@example.com
-
----
-
-This project was created as part of the CodeAlpha internship program.
